@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Soft Blue Universe 💙</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins', sans-serif;
+    background:linear-gradient(135deg,#cfe9f7,#eaf6ff);
+    color:#1a3c55;
+    overflow-x:hidden;
+}
+
+/* ===== Floating Stars ===== */
+.stars{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    pointer-events:none;
+    z-index:0;
+}
+
+.star{
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:white;
+    border-radius:50%;
+    animation: twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle{
+    0%,100%{opacity:0.3;}
+    50%{opacity:1;}
+}
+
+/* ===== Sections ===== */
+section{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px 20px;
+    position:relative;
+    z-index:1;
+    animation: fadeIn 2s ease-in;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(30px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* ===== Landing ===== */
+h1{
+    font-family:'Playfair Display', serif;
+    font-size:2.8rem;
+    margin-bottom:20px;
+}
+
+.btn{
+    padding:12px 30px;
+    border-radius:30px;
+    border:none;
+    background:#a8daf8;
+    color:#08324a;
+    font-size:1rem;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#7cc3f5;
+    transform:scale(1.05);
+}
+
+/* ===== Cards ===== */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    margin-top:40px;
+    width:100%;
+    max-width:900px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+/* ===== Letter ===== */
+.letter-btn{
+    margin-top:20px;
+}
+
+.letter{
+    margin-top:30px;
+    max-width:600px;
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+    display:none;
+    animation: fadeIn 1.5s ease-in;
+}
+
+/* ===== Final Section ===== */
+.final{
+    background:linear-gradient(135deg,#8ecae6,#219ebc);
+    color:white;
+}
+
+.final h2{
+    font-family:'Playfair Display', serif;
+    font-size:2.2rem;
+    margin-bottom:15px;
+}
+
+</style>
+</head>
+<body>
+
+<!-- Stars -->
+<div class="stars" id="stars"></div>
+
+<!-- Landing -->
+<section>
+    <h1>In a world full of noise... <br>I found my calm in you, Aduu 💙</h1>
+    <button class="btn" onclick="window.scrollTo({top:window.innerHeight,behavior:'smooth'})">
+        Enter Our Universe ✨
+    </button>
+</section>
+
+<!-- Cute Section -->
+<section>
+    <h2 style="font-family:'Playfair Display',serif;font-size:2rem;">Us Being Us 🤍</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Our Silly Fights</h3>
+            <p>We argue like kids but love like forever.</p>
+        </div>
+        <div class="card">
+            <h3>2AM Conversations</h3>
+            <p>When the world sleeps, our hearts talk.</p>
+        </div>
+        <div class="card">
+            <h3>Your Voice</h3>
+            <p>The safest sound I know.</p>
+        </div>
+        <div class="card">
+            <h3>Our Secret Jokes</h3>
+            <p>No one else would understand.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Letter Section -->
+<section>
+    <h2 style="font-family:'Playfair Display',serif;font-size:2rem;">A Letter For You 💌</h2>
+    <button class="btn letter-btn" onclick="openLetter()">Open My Heart</button>
+
+    <div class="letter" id="letter">
+        <p>
+        Aduu,<br><br>
+        Loving you feels like the calm sea after a long storm.  
+        You are my peace in chaos, my softness in this loud world.<br><br>
+        Even when we fight, even when we misunderstand each other,  
+        I still choose you — every single time.<br><br>
+        If I had to live this life again,  
+        I would still find my way back to you.<br><br>
+        Yours always,<br>
+        Aruu 💙
+        </p>
+    </div>
+</section>
+
+<!-- Final -->
+<section class="final">
+    <h2>If I had to choose again... <br>I’d still choose you. 💙</h2>
+    <p>Every lifetime. Every universe.</p>
+</section>
+
+<script>
+
+/* Floating stars generator */
+const starsContainer = document.getElementById("stars");
+
+for(let i=0;i<60;i++){
+    let star=document.createElement("div");
+    star.classList.add("star");
+    star.style.top=Math.random()*100+"%";
+    star.style.left=Math.random()*100+"%";
+    star.style.animationDuration=(2+Math.random()*3)+"s";
+    starsContainer.appendChild(star);
+}
+
+/* Letter open */
+function openLetter(){
+    document.getElementById("letter").style.display="block";
+}
+
+</script>
+
+</body>
+</html>
