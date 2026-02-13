@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Soft Blue Universe 💙</title>
 
-<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
@@ -24,6 +23,18 @@ body{
     overflow-x:hidden;
 }
 
+/* ===== Slight Dark Overlay (Fix 2) ===== */
+body::before{
+    content:"";
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,40,0.08);
+    z-index:0;
+}
+
 /* ===== Floating Stars ===== */
 .stars{
     position:fixed;
@@ -35,18 +46,23 @@ body{
     z-index:0;
 }
 
+/* ===== Glowing Stars (Fix 1) ===== */
 .star{
     position:absolute;
-    width:3px;
-    height:3px;
-    background:white;
+    width:4px;
+    height:4px;
+    background:rgba(255,255,255,0.9);
     border-radius:50%;
-    animation: twinkle 3s infinite ease-in-out;
+    box-shadow:0 0 8px rgba(255,255,255,0.8),
+               0 0 15px rgba(173,216,230,0.6);
+    animation: twinkle 4s infinite ease-in-out;
 }
 
+/* ===== Better Twinkle (Fix 3) ===== */
 @keyframes twinkle{
-    0%,100%{opacity:0.3;}
-    50%{opacity:1;}
+    0%{opacity:0.2; transform:scale(1);}
+    50%{opacity:1; transform:scale(1.4);}
+    100%{opacity:0.2; transform:scale(1);}
 }
 
 /* ===== Sections ===== */
@@ -68,7 +84,6 @@ section{
     to{opacity:1; transform:translateY(0);}
 }
 
-/* ===== Landing ===== */
 h1{
     font-family:'Playfair Display', serif;
     font-size:2.8rem;
@@ -91,7 +106,6 @@ h1{
     transform:scale(1.05);
 }
 
-/* ===== Cards ===== */
 .cards{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -113,7 +127,6 @@ h1{
     transform:translateY(-10px);
 }
 
-/* ===== Letter ===== */
 .letter-btn{
     margin-top:20px;
 }
@@ -129,7 +142,6 @@ h1{
     animation: fadeIn 1.5s ease-in;
 }
 
-/* ===== Final Section ===== */
 .final{
     background:linear-gradient(135deg,#8ecae6,#219ebc);
     color:white;
@@ -145,7 +157,6 @@ h1{
 </head>
 <body>
 
-<!-- Stars -->
 <div class="stars" id="stars"></div>
 
 <!-- Landing -->
@@ -156,31 +167,61 @@ h1{
     </button>
 </section>
 
-<!-- Cute Section -->
+<!-- Personalized Section -->
 <section>
-    <h2 style="font-family:'Playfair Display',serif;font-size:2rem;">Us Being Us 🤍</h2>
+    <h2 style="font-family:'Playfair Display',serif;font-size:2rem;">
+        Just Us 💙
+    </h2>
+
+    <p id="typingText" style="margin-top:15px;font-weight:300;"></p>
 
     <div class="cards">
+
         <div class="card">
-            <h3>Our Silly Fights</h3>
-            <p>We argue like kids but love like forever.</p>
+            <h3>05 December 2024 💫</h3>
+            <p>
+                The day it all started.  
+                From that moment, you slowly became my favorite person.
+            </p>
         </div>
+
         <div class="card">
-            <h3>2AM Conversations</h3>
-            <p>When the world sleeps, our hearts talk.</p>
+            <h3>Our Cute Fights 🤍</h3>
+            <p>
+                We fight, we argue, we say "shut uppp" in the cutest way…  
+                but at the end, you always understand me.
+            </p>
         </div>
+
         <div class="card">
-            <h3>Your Voice</h3>
-            <p>The safest sound I know.</p>
+            <h3>The Thing That Melts Me 🌙</h3>
+            <p>
+                When you touch my feet after a fight…  
+                I pretend to act strong, but inside I melt completely.
+            </p>
         </div>
+
         <div class="card">
-            <h3>Our Secret Jokes</h3>
-            <p>No one else would understand.</p>
+            <h3>Our Promise Day 🌊</h3>
+            <p>
+                The promise to stay together forever.  
+                To choose love over ego. Always.
+            </p>
         </div>
+
+        <div class="card">
+            <h3>What I Truly Love About You 💙</h3>
+            <p>
+                Your caring nature.  
+                The way you become soft at the end of every fight.  
+                The way you understand me.
+            </p>
+        </div>
+
     </div>
 </section>
 
-<!-- Letter Section -->
+<!-- Letter -->
 <section>
     <h2 style="font-family:'Playfair Display',serif;font-size:2rem;">A Letter For You 💌</h2>
     <button class="btn letter-btn" onclick="openLetter()">Open My Heart</button>
@@ -189,9 +230,10 @@ h1{
         <p>
         Aduu,<br><br>
         Loving you feels like the calm sea after a long storm.  
-        You are my peace in chaos, my softness in this loud world.<br><br>
         Even when we fight, even when we misunderstand each other,  
-        I still choose you — every single time.<br><br>
+        you always come back with love.<br><br>
+        You are caring. You are understanding.  
+        And you never let our fights break us.<br><br>
         If I had to live this life again,  
         I would still find my way back to you.<br><br>
         Yours always,<br>
@@ -200,15 +242,13 @@ h1{
     </div>
 </section>
 
-<!-- Final -->
 <section class="final">
-    <h2>If I had to choose again... <br>I’d still choose you. 💙</h2>
+    <h2>If I had to choose again... <br>I would still choose you. 💙</h2>
     <p>Every lifetime. Every universe.</p>
 </section>
 
 <script>
 
-/* Floating stars generator */
 const starsContainer = document.getElementById("stars");
 
 for(let i=0;i<60;i++){
@@ -216,16 +256,29 @@ for(let i=0;i<60;i++){
     star.classList.add("star");
     star.style.top=Math.random()*100+"%";
     star.style.left=Math.random()*100+"%";
-    star.style.animationDuration=(2+Math.random()*3)+"s";
+    star.style.animationDuration=(3+Math.random()*3)+"s";
     starsContainer.appendChild(star);
 }
 
-/* Letter open */
 function openLetter(){
     document.getElementById("letter").style.display="block";
 }
 
+/* Typing effect */
+const text = "No perfect photos. Just real love since 05 December 2024.";
+let i = 0;
+
+function typeWriter(){
+    if(i < text.length){
+        document.getElementById("typingText").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 40);
+    }
+}
+
+typeWriter();
+
 </script>
 
 </body>
-</html>
+    </html>
